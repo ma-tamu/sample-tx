@@ -1,0 +1,29 @@
+version: '3'
+services:
+  sample-db:
+    image: mysql:5.7
+    container_name: mysql_5_7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: sample
+      MYSQL_USER: sample
+      MYSQL_PASSWORD: sample
+      TZ: Asia/Tokyo
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+#    volumes:
+#    - mysqlmysql_5_7:/var/lib/mysql
+    ports:
+    - 3506:3306
+  sample2-db:
+    image: mysql:8.0.18
+    container_name: mysql_8_0_18
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: sample2
+      MYSQL_USER: sample2
+      MYSQL_PASSWORD: sample2
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+#    volumes:
+#    - mysql_mysql_8_0_18:/var/lib/mysql
+    ports:
+    - 3606:3306
